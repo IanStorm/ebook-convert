@@ -2,7 +2,17 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Docker pull",
+			"label": "build",
+			"type": "shell",
+			"command": "docker build -t ebook-convert .",
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Docker pull (sync)",
 			"type": "shell",
 			"command": "docker pull ianstorm/dev-settings-sync",
 			"problemMatcher": []
@@ -13,7 +23,7 @@
 			"command": "docker run --rm -t -v ${PWD}/:/mnt/ ianstorm/dev-settings-sync sync",
 			"problemMatcher": [],
 			"dependsOn": [
-				"Docker pull"
+				"Docker pull (sync)"
 			]
 		}
 	]

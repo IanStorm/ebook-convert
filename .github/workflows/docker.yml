@@ -1,0 +1,57 @@
+#
+# 🛑 Think twice before editing this file! 🛑
+# ⚠️ This file is maintained via https://github.com/IanStorm/dev-settings-sync. ⚠️
+#
+name: Docker
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 22 * * 5' # weekly, i.e. every Friday at 10pm
+
+env:
+  DOCKERHUB_USERNAME: ianstorm
+
+jobs:
+  docker-job:
+    runs-on: Ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u $DOCKERHUB_USERNAME --password-stdin
+
+      - name: Docker buildx and push
+        run: |
+          IMAGE_ID=${{ github.repository }}
+
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "main" ] && VERSION=latest
+
+          echo IMAGE_ID=$IMAGE_ID
+          echo VERSION=$VERSION
+
+          docker buildx build \
+            --platform linux/amd64,linux/arm/v7,linux/arm/v6 \
+            --output "type=image,push=true" \
+            --tag $IMAGE_ID:$VERSION \
+            --file Dockerfile \
+            .
