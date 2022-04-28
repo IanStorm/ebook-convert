@@ -1,5 +1,8 @@
 # Ebook convert 📕🔄📗
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/ianstorm/ebook-convert)](https://hub.docker.com/r/ianstorm/ebook-convert)
+[![Docker Stars](https://img.shields.io/docker/stars/ianstorm/ebook-convert)](https://hub.docker.com/r/ianstorm/ebook-convert)
+
 A Docker image for converting ebooks.
 
 **🐳 Make sure you have installed *Docker*.**

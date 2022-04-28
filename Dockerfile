@@ -7,3 +7,9 @@ ENV DEBIAN_FRONTEND noninteractive
 #	↓	Install Calibre
 RUN apt-get update \
 	&& apt-get install -y calibre
+
+#	↓	Copy stuff
+COPY ./bin/ /bin/
+RUN chmod +x /bin/help
+
+CMD [ "help" ]
