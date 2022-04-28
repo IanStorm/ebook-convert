@@ -1,6 +1,5 @@
 #
-# 🛑 Think twice before editing this file! 🛑
-# ⚠️ This file is maintained via https://github.com/IanStorm/dev-settings-sync. ⚠️
+# Inspired by https://github.com/IanStorm/dev-settings-sync.
 #
 name: Docker
 
@@ -50,7 +49,7 @@ jobs:
           echo VERSION=$VERSION
 
           docker buildx build \
-            --platform linux/amd64,linux/arm/v7,linux/arm/v6 \
+            --platform linux/amd64,linux/arm/v7 \
             --output "type=image,push=true" \
             --tag $IMAGE_ID:$VERSION \
             --file Dockerfile \
