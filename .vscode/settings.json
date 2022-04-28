@@ -1,0 +1,14 @@
+{
+	// ↓ vscode settings
+
+	"editor.rulers": [
+		100,
+		120
+	],
+
+
+	// ↓ Extension settings
+
+
+	// ↓ Misc.
+}

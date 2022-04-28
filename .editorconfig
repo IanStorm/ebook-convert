@@ -1,0 +1,17 @@
+root = true
+
+
+[*]
+charset = utf-8
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+
+[*.sh]
+end_of_line = lf
+
+
+[{*.{yaml,yml},cupsd.conf*,package.json}]
+indent_size = 2
+indent_style = space
