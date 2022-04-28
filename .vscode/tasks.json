@@ -1,0 +1,20 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Docker pull",
+			"type": "shell",
+			"command": "docker pull ianstorm/dev-settings-sync",
+			"problemMatcher": []
+		},
+		{
+			"label": "sync",
+			"type": "shell",
+			"command": "docker run --rm -t -v ${PWD}/:/mnt/ ianstorm/dev-settings-sync sync",
+			"problemMatcher": [],
+			"dependsOn": [
+				"Docker pull"
+			]
+		}
+	]
+}

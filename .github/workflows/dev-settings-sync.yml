@@ -1,0 +1,25 @@
+#
+# 🛑 Think twice before editing this file! 🛑
+# ⚠️ This file is maintained via https://github.com/IanStorm/dev-settings-sync. ⚠️
+#
+name: Are dev settings synced?
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check-job:
+    runs-on: Ubuntu-20.04
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Docker Pull
+        run: docker pull ianstorm/dev-settings-sync
+
+      - name: Docker Run check
+        run: docker run -t -v ${PWD}/:/mnt/ ianstorm/dev-settings-sync check
