@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "##########################"
+echo "# IanStorm/ebook-convert #"
+echo "#      epub-to-mobi      #"
+echo "##########################"
+echo ""
+
+for file in "$(find /mnt/calibre/input/ -name *.epub)"; do
+	if [ -f "$file" ]; then
+		ebook-convert "$file" "/mnt/calibre/output/$(basename -s .epub "${file}").mobi"
+	fi
+done

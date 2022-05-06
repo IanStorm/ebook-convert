@@ -6,4 +6,4 @@ echo "##########################"
 echo ""
 
 echo "Available commands:"
-echo "/"
+echo "- epub-to-mobi"

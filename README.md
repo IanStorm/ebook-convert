@@ -8,6 +8,29 @@ A Docker image for converting ebooks.
 **🐳 Make sure you have installed *Docker*.**
 
 
+## Features
+
+* ✔️ EPUB ➡ MOBI
+
+
+## How to use in "production"? 👨‍💼 👩‍💼
+
+1. Follow ["How to get a pre-built Docker image?"](#-how-to-get-a-pre-built-docker-image-☁️).
+2. Create a folder with the following file/folder structure:
+	* An `input` folder containing ebooks in the respective format
+	* An (empty) `output` folder
+2. `cd` inside that folder (containing the two sub-folders).
+2. Run the Docker image:
+```
+$	docker run \
+		--rm \
+		-t \
+		-v ${PWD}/:/mnt/calibre/ \
+		ianstorm/ebook-convert
+```
+5. Take the converted ebooks from the *output folder*.
+
+
 ## How to develop? 👨‍💻 👩‍💻
 
 Make sure you have installed *Visual Studio Code*.
@@ -26,3 +49,8 @@ Get the latest Docker image from Docker Hub:
 ```
 $	docker pull ianstorm/ebook-convert:latest
 ```
+
+
+### Sources
+
+* [How to convert EPUB to MOBI](https://askubuntu.com/a/396400)

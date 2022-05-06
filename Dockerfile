@@ -10,6 +10,7 @@ RUN apt-get update \
 
 #	↓	Copy stuff
 COPY ./bin/ /bin/
+RUN chmod +x /bin/epub-to-mobi
 RUN chmod +x /bin/help
 
 CMD [ "help" ]
