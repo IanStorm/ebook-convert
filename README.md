@@ -1,5 +1,6 @@
 # Ebook convert 📕🔄📗
 
+[![GitHub Actions](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FIanStorm%2Febook-convert%2Fbadge%3Fref%3Dmain&style=flat&label=build&logo=none)](https://actions-badge.atrox.dev/IanStorm/ebook-convert/goto?ref=main)
 [![Docker Pulls](https://img.shields.io/docker/pulls/ianstorm/ebook-convert)](https://hub.docker.com/r/ianstorm/ebook-convert)
 [![Docker Stars](https://img.shields.io/docker/stars/ianstorm/ebook-convert)](https://hub.docker.com/r/ianstorm/ebook-convert)
 
