@@ -4,10 +4,18 @@ echo "##########################"
 echo "# IanStorm/ebook-convert #"
 echo "#      epub-to-mobi      #"
 echo "##########################"
-echo ""
+echo "#"
 
-for file in "$(find /mnt/calibre/input/ -name *.epub)"; do
-	if [ -f "$file" ]; then
-		ebook-convert "$file" "/mnt/calibre/output/$(basename -s .epub "${file}").mobi"
+# ⬇ 👀 https://stackoverflow.com/a/54561526
+readarray -d "" epubFilePaths < <(find /mnt/calibre/input/ -name *.epub -print0)
+
+echo "# Found ${#epubFilePaths[@]} EPUB files."
+for filePath in ${epubFilePaths[@]}; do
+	if [ -f "$filePath" ]; then
+		fileName=$(basename -s .epub "${filePath}")
+		echo "# Converting '$fileName'"
+		ebook-convert "$filePath" "/mnt/calibre/output/$fileName.mobi"
 	fi
 done
+
+echo "# Done"
