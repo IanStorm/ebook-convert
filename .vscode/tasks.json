@@ -12,10 +12,34 @@
 			}
 		},
 		{
+			"label": "build & run (epub-to-mobi)",
+			"type": "shell",
+			"command": "docker run --rm -i -t -v $(pwd)/calibre/:/mnt/calibre/ ebook-convert epub-to-mobi",
+			"problemMatcher": [],
+			"dependsOn": [
+				"build"
+			]
+		},
+		{
+			"label": "Docker pull (convert)",
+			"type": "shell",
+			"command": "docker pull ianstorm/ebook-convert",
+			"problemMatcher": []
+		},
+		{
 			"label": "Docker pull (sync)",
 			"type": "shell",
 			"command": "docker pull ianstorm/dev-settings-sync",
 			"problemMatcher": []
+		},
+		{
+			"label": "run (epub-to-mobi)",
+			"type": "shell",
+			"command": "docker run --rm -i -t -v $(pwd)/calibre/:/mnt/calibre/ ianstorm/ebook-convert epub-to-mobi",
+			"problemMatcher": [],
+			"dependsOn": [
+				"Docker pull (convert)"
+			]
 		},
 		{
 			"label": "sync",
