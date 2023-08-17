@@ -2,25 +2,32 @@
 # 🛑 Think twice before editing this file! 🛑
 # ⚠️ This file is maintained via https://github.com/IanStorm/dev-settings-sync. ⚠️
 #
+
+# yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
+
 version: 2
 
 updates:
-  - package-ecosystem: "cargo"
-    directory: "/"
+  - package-ecosystem: cargo
+    directory: /
     schedule:
-      interval: "daily"
+      interval: weekly
+      day: friday
 
-  - package-ecosystem: "docker"
-    directory: "/"
+  - package-ecosystem: docker
+    directory: /
     schedule:
-      interval: "daily"
+      interval: weekly
+      day: friday
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "daily"
+      interval: weekly
+      day: friday
 
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: "daily"
+      interval: weekly
+      day: friday
