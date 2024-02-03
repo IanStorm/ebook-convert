@@ -10,11 +10,13 @@ echo "#"
 readarray -d "" epubFilePaths < <(find /mnt/calibre/input/ -name *.epub -print0)
 
 echo "# Found ${#epubFilePaths[@]} EPUB files."
-for filePath in ${epubFilePaths[@]}; do
+for filePath in "${epubFilePaths[@]}"; do
 	if [ -f "$filePath" ]; then
 		fileName=$(basename -s .epub "${filePath}")
 		echo "# Converting '$fileName'"
 		ebook-convert "$filePath" "/mnt/calibre/output/$fileName.mobi"
+	else
+		echo "# ⚠️  Skipped '$filePath'"
 	fi
 done
 
