@@ -1,6 +1,6 @@
 # ↓	Main stage
 # 		Ubuntu 22.04 (LTS)
-FROM ubuntu:jammy-20240416
+FROM ubuntu:jammy-20240427
 
 #	↓	Avoid tzdata user interaction while `apt install`
 ENV DEBIAN_FRONTEND noninteractive
