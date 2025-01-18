@@ -3,7 +3,7 @@
 FROM ubuntu:jammy-20240808
 
 #	⬇️	Avoid tzdata user interaction while `apt install`
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 #	⬇️	Install Calibre
 RUN apt-get update \
