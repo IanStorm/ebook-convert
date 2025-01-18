@@ -14,6 +14,12 @@ updates:
       interval: weekly
       day: friday
 
+  - package-ecosystem: devcontainers
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+
   - package-ecosystem: docker
     directory: /
     schedule:
